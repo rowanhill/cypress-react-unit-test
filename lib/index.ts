@@ -45,7 +45,7 @@ Cypress.stylesCache = stylesCache
 
 /** Caches styles from previously compiled components for reuse
     @function   cy.copyComponentStyles
-    @param      {Object}  component
+    @param      {ReactElement}  component
 **/
 Cypress.Commands.add('copyComponentStyles', component => {
   // need to find same component when component is recompiled
@@ -83,8 +83,8 @@ Cypress.Commands.add('copyComponentStyles', component => {
  * Mount a React component in a blank document; register it as an alias
  * To access: use an alias or original component reference
  *  @function   cy.mount
- *  @param      {Object}  jsx - component to mount
- *  @param      {string}  [Component] - alias to use later
+ *  @param      {ReactElement}  jsx - component to mount
+ *  @param      {string}  alias - alias to use later
  *  @example
  ```
  import Hello from './hello.jsx'

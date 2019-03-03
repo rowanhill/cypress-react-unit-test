@@ -9,6 +9,12 @@ interface ReactModule {
   source: string
 }
 
+interface ReactElement {
+  type: any;
+  props: any;
+  key: string | number | null;
+}
+
 declare namespace Cypress {
   interface Cypress {
     stylesCache: any
@@ -23,13 +29,13 @@ declare namespace Cypress {
   interface Chainable<Subject> {
     state: (key) => any,
     injectReactDOM: () => Chainable<void>
-    copyComponentStyles: (component: Symbol) => Chainable<void>
+    copyComponentStyles: (component: ReactElement) => Chainable<void>
     /**
      * Mount a React component in a blank document; register it as an alias
      * To access: use an alias or original component reference
      *  @function   cy.mount
-     *  @param      {Object}  jsx - component to mount
-     *  @param      {string}  [Component] - alias to use later
+     *  @param      {ReactElement}  jsx - component to mount
+     *  @param      {string}  alias - alias to use later
      *  @example
     ```
     import Hello from './hello.jsx'
@@ -43,7 +49,7 @@ declare namespace Cypress {
     cy.get(Hello)
     ```
     **/
-    mount: (component: Symbol, alias?: string) => Chainable<void>
+    mount: (jsx: ReactElement, alias?: string) => Chainable<void>
     get<S = any>(alias: string | symbol | Function, options?: Partial<Loggable & Timeoutable>): Chainable<any>
   }
 }

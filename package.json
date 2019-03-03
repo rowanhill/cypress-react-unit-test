@@ -2,7 +2,7 @@
   "name": "cypress-react-unit-test",
   "version": "0.0.0-development",
   "description": "Unit test React components using Cypress",
-  "main": "dist",
+  "main": "dist/index.js",
   "module": "lib",
   "scripts": {
     "test": "cypress run",
@@ -17,7 +17,7 @@
     "dist",
     "lib"
   ],
-  "types": "lib",
+  "types": "lib/index.d.ts",
   "keywords": [
     "react",
     "cypress",
